@@ -106,23 +106,31 @@ Add the following secrets to your repository:
 
 ---
 
-## 📸 Screenshots & Verification
+## 📸 Assignment Deliverables & Screenshots
 
-### 1. Application UI (Home Page)
+According to the task requirements, here is the verification of the deployment:
+
+### 1. Application Running on VM
 ![Home Page](./screenshots/home.png)
-*The application successfully loads on the EC2 IP and displays the tutorial list.*
+*The MEAN application is live at http://13.232.140.134/ showing the frontend UI.*
 
-### 2. Add Tutorial Form
-![Add Page](./screenshots/add.png)
-*The Angular routing correctly navigates to the /add page.*
-
-### 3. Backend API Validation
+### 2. Nginx Reverse Proxy Setup (Port 80)
 ![API Screenshot](./screenshots/api.png)
-*Accessing /api/tutorials returns the JSON data from MongoDB via the Nginx proxy.*
+*This screenshot shows a successful API call to `/api/tutorials`. This confirms Nginx is correctly proxying port 80 traffic to the backend container.*
 
-### 4. CI/CD Operations (GitHub Actions)
+### 3. CI/CD Pipeline Execution
 ![GitHub Actions](./screenshots/cicd.png)
-*Automated pipeline successfully building and deploying the whole stack.*
+*This shows the GitHub Actions completion, confirming the automated Build, Push, and Deploy phases.*
+
+### 4. Application Functionality (Add Tutorial)
+![Add Page](./screenshots/add.png)
+*Verification that the Angular routing and the "Add" functionality are working as expected.*
+
+### 5. Infrastructure Details
+- **Instance:** AWS EC2 t2.micro (Ubuntu 22.04 LTS)
+- **Networking:** Port 80 (HTTP) and Port 22 (SSH) open in Security Groups.
+- **Orchestration:** Docker Compose managing 4 interconnected containers on a bridge network.
+- **Container Registry:** Image hosted on Docker Hub (`abhinandan069/`).
 
 ---
-*Created with ❤️ for the Discover Dollar Recruitment Process.*
+*Submitted for Discover Dollar DevOps Internship Assignment.*
