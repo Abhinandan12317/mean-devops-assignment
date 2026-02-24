@@ -1,0 +1,47 @@
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  backend:
+    image: abhinandan069/mean-backend:latest
+    restart: always
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mean-db
+      - PORT=3000
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  frontend:
+    image: abhinandan069/mean-frontend:latest
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
