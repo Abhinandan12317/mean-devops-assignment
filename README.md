@@ -112,25 +112,31 @@ According to the task requirements, here is the verification of the deployment:
 
 ### 1. Application Running on VM
 ![Home Page](./screenshots/home.png)
-*The MEAN application is live at http://13.232.140.134/ showing the frontend UI.*
+*Live URL:* [http://13.232.140.134/](http://13.232.140.134/)
+*The MEAN application is live showing the frontend UI.*
 
 ### 2. Nginx Reverse Proxy Setup (Port 80)
 ![API Screenshot](./screenshots/api.png)
-*This screenshot shows a successful API call to `/api/tutorials`. This confirms Nginx is correctly proxying port 80 traffic to the backend container.*
+*Verification API:* [http://13.232.140.134/api/tutorials](http://13.232.140.134/api/tutorials)
+*This confirms Nginx is correctly proxying port 80 traffic to the backend container.*
 
 ### 3. CI/CD Pipeline Execution
 ![GitHub Actions](./screenshots/cicd.png)
-*This shows the GitHub Actions completion, confirming the automated Build, Push, and Deploy phases.*
+*GitHub Actions:* [Pipeline Runs](https://github.com/Abhinandan12317/mean-devops-assignment/actions)
+*This confirms the automated Build, Push, and Deploy phases are active and functional.*
 
 ### 4. Application Functionality (Add Tutorial)
 ![Add Page](./screenshots/add.png)
+*Direct Link:* [http://13.232.140.134/add](http://13.232.140.134/add)
 *Verification that the Angular routing and the "Add" functionality are working as expected.*
 
 ### 5. Infrastructure Details
 - **Instance:** AWS EC2 t2.micro (Ubuntu 22.04 LTS)
 - **Networking:** Port 80 (HTTP) and Port 22 (SSH) open in Security Groups.
 - **Orchestration:** Docker Compose managing 4 interconnected containers on a bridge network.
-- **Container Registry:** Image hosted on Docker Hub (`abhinandan069/`).
+- **Container Registry:** 
+  - Backend: [abhinandan069/mean-backend](https://hub.docker.com/r/abhinandan069/mean-backend)
+  - Frontend: [abhinandan069/mean-frontend](https://hub.docker.com/r/abhinandan069/mean-frontend)
 
 ---
 *Submitted for Discover Dollar DevOps Internship Assignment.*
